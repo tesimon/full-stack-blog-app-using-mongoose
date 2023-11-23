@@ -3,17 +3,16 @@ import ConnectDb from "@/utils/database";
 export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
   const pageNumb = searchParams.get("page");
-  const pageNumbs = parseInt(pageNumb);
+  const pageNumbs = parseInt(pageNumb) || 1;
   const cat = searchParams.get("cat");
   try {
     await ConnectDb();
     const allposts = await Post.find().populate("creator");
-    const filteredposts = await Post.find({})
+    const filteredposts = await Post.find()
       .skip((pageNumbs - 1) * 2)
       .limit(2)
       .where({ ...(cat && { catSlug: cat }) })
-      .populate("creator")
-      .exec();
+      .populate("creator");
     const count = await Post.countDocuments();
 
     return new Response(JSON.stringify({ allposts, filteredposts, count }), {

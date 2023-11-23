@@ -1,4 +1,3 @@
-// import { User } from "@/utils/models/allmodels";
 import userInfo from "@/models/User";
 import ConnectDb from "@/utils/database";
 import NextAuth from "next-auth";

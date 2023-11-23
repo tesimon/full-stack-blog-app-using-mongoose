@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const TrendingPosts = ({ posts }) => {
-  const trendingPosts = posts.sort((a, b) => b.views - a.views).slice(0, 3);
+  const trendingPosts = posts?.sort((a, b) => b.views - a.views)?.slice(0, 3);
 
   return (
     <div className="sm:block ">

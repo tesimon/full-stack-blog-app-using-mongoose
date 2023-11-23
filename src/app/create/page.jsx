@@ -7,21 +7,15 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { useSession } from "next-auth/react";
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import ReactQuill from "react-quill";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 import "react-quill/dist/quill.snow.css";
 
 const Page = () => {
-  const [didMount, setdidMount] = useState(false);
-
-  useEffect(() => {
-    setdidMount(true);
-  }, []);
-  // const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
   const [file, setfile] = useState(null);
   const [media, setMedia] = useState("");
   const [title, setTitle] = useState("");
@@ -147,14 +141,13 @@ const Page = () => {
             Post
           </button>
         </div>
-        {didMount && (
-          <ReactQuill
-            value={value}
-            placeholder="Write your article here ..."
-            onChange={setValue}
-            theme="snow"
-          />
-        )}
+
+        <ReactQuill
+          value={value}
+          placeholder="Write your article here ..."
+          onChange={setValue}
+          theme="snow"
+        />
       </div>
     </div>
   );

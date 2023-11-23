@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Featured = ({ posts }) => {
   const sorted = posts?.sort((a, b) => parseInt(b.views) - parseInt(a.views));
-  const sortedPosts = sorted.slice(0, 2);
+  const sortedPosts = sorted?.slice(0, 2);
   const content = sortedPosts[0]?.desc?.substring(0, 220);
   return (
     <div className="flex flex-col sm:justify-around justify-center sm:items-start items-center md:my-8 my-5 2xl:my-10 ">
