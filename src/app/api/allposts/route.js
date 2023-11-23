@@ -1,5 +1,5 @@
-import Post from "@/models/Posts";
 import ConnectDb from "@/utils/database";
+import Post from "@/models/Posts";
 export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
   const pageNumb = searchParams.get("page");

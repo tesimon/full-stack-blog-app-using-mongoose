@@ -1,4 +1,4 @@
-import userInfo from "@/models/User";
+import User from "@/models/User";
 import ConnectDb from "@/utils/database";
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
@@ -19,7 +19,7 @@ const handler = NextAuth({
     async session({ session, token, user }) {
       try {
         await ConnectDb();
-        const dbUser = await userInfo.findOne({ email: token.email });
+        const dbUser = await User.findOne({ email: token.email });
         session.user = dbUser;
         session.user.id = token.sub;
         return session;
@@ -31,9 +31,9 @@ const handler = NextAuth({
     async signIn({ user }) {
       try {
         await ConnectDb();
-        const currentUser = await userInfo.findOne({ email: user.email });
+        const currentUser = await User.findOne({ email: user.email });
         if (!currentUser) {
-          await userInfo.create({
+          await User.create({
             name: user.name,
             email: user.email,
             image: user.image,

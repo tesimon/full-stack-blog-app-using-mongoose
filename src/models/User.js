@@ -5,8 +5,6 @@ const UserSchema = new Schema({
   email: { type: String, unique: true },
   emailVerified: Date,
   image: String,
-  sessions: { type: Schema.Types.ObjectId, ref: "Session" },
-  posts: { type: Schema.Types.ObjectId, ref: "Post" },
   comments: { type: Schema.Types.ObjectId, ref: "Comment" },
 });
 // Define the Session schema
