@@ -9,7 +9,7 @@ import CommentPosts from "./CommentPosts";
 const Comments = ({ postId }) => {
   const postSlug = postId;
   const { data, mutate, isLoading } = useSWR(
-    `http://localhost:3000/api/comments?postId=${postId}`,
+    `/api/comments?postId=${postId}`,
     fetchingCommentsData
   );
 

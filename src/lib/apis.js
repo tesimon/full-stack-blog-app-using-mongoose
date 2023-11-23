@@ -1,8 +1,6 @@
 export const fetchingAllPosts = async (pageNumb, catagory) => {
   const res = await fetch(
-    `http://localhost:3000/api/allposts?page=${pageNumb || ""}&cat=${
-      catagory || ""
-    }`,
+    `/api/allposts?page=${pageNumb || ""}&cat=${catagory || ""}`,
     {
       cache: "no-store",
     }
@@ -16,7 +14,7 @@ export const fetchingAllPosts = async (pageNumb, catagory) => {
 //single post fetching
 
 export const fetchSinglePostData = async (slug) => {
-  const response = await fetch(`http://localhost:3000/api/allposts/${slug}`, {
+  const response = await fetch(`/api/allposts/${slug}`, {
     cache: "no-store",
   });
   if (!response.ok) {
