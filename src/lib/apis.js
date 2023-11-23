@@ -1,6 +1,8 @@
 export const fetchingAllPosts = async (pageNumb, catagory) => {
   const res = await fetch(
-    `/api/allposts?page=${pageNumb || ""}&cat=${catagory || ""}`,
+    `https://thoughtfulperspectives.vercel.app/api/allposts?page=${
+      pageNumb || ""
+    }&cat=${catagory || ""}`,
     {
       cache: "no-store",
     }
@@ -14,9 +16,12 @@ export const fetchingAllPosts = async (pageNumb, catagory) => {
 //single post fetching
 
 export const fetchSinglePostData = async (slug) => {
-  const response = await fetch(`/api/allposts/${slug}`, {
-    cache: "no-store",
-  });
+  const response = await fetch(
+    `https://thoughtfulperspectives.vercel.app/api/allposts/${slug}`,
+    {
+      cache: "no-store",
+    }
+  );
   if (!response.ok) {
     throw new Error("failed to fetch the single post ");
   }
