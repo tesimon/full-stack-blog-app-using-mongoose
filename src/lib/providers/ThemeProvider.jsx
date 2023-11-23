@@ -12,7 +12,9 @@ const ThemeProvider = ({ children }) => {
   }, []);
 
   if (winObjMount)
-    return <div className={`${theme} containers  `}> {children}</div>;
+    return (
+      <div className={`${theme || "light"} containers  `}> {children}</div>
+    );
 };
 
 export default ThemeProvider;

@@ -3,7 +3,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="flex flex-col max-[640px]:gap-2 sm:flex-row justify-around  mt-5 py-10 bg-slate-950 rounded-sm">
+      <div className="flex flex-col max-[640px]:gap-2 sm:flex-row justify-around  mt-5 py-10 bg-slate-950 rounded-sm px-5">
         <div className="flex flex-col gap-4 ">
           <span className="text-orange-300 inline-flex gap-2">
             Icons credit <p className="text-slate-500">Icons by icons8</p>{" "}

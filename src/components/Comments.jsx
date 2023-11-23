@@ -55,11 +55,9 @@ const Comments = ({ postId }) => {
             </button>
           </div>
         ) : (
-          !status === "loading" && (
-            <span className="text-orange-400 font-extrabold my-5">
-              Login to Comment on this post
-            </span>
-          )
+          <span className="text-orange-400 font-extrabold my-5">
+            Login to Comment on this post
+          </span>
         )}
       </div>
       {comments?.map((item) => (
